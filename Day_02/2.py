@@ -16,6 +16,7 @@ def is_sorted(liste:list):
     return is_increasing(liste) or is_decreasing(liste)
 
 with open("input_2.txt", "r") as file:
+    boolean = bool(int(input("First star (1) or Second star (2) : "))-1)
     string = ""
     string = file.read()
     l = string.split("\n")
@@ -26,12 +27,12 @@ with open("input_2.txt", "r") as file:
             l[i][j] = int(l[i][j])
         if not is_sorted(l[i]):
             condition = False
-            for j in range(len(l[i])):
-                temp = l[i].copy()
-                print(temp, j)
-                temp.pop(j)
-                if is_sorted(temp):
-                    condition = True
+            if boolean:
+                for j in range(len(l[i])):
+                    temp = l[i].copy()
+                    temp.pop(j)
+                    if is_sorted(temp):
+                        condition = True
             if condition == False:
                 continue
             
