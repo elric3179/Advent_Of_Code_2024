@@ -22,7 +22,7 @@ def up_down(liste:list[list[str]]):
                 somme += 1
             if check(liste, (len(liste[0])-1-j, i), (len(liste[0])-2-j, i), (len(liste[0])-3-j, i), (len(liste[0])-4-j, i)):
                 somme += 1
-def first_dia(liste:list[list[str]]):
+def one_dia(liste:list[list[str]]):
     global somme
     for i in range(len(liste)-3):
         for j in range(len(liste[0])-3):
@@ -62,5 +62,12 @@ def pattern(liste):
                 somme += 1
 with open("input_4.txt", "r") as file:
     liste = file.read().split("\n")
-    pattern(liste)
+    boolean = bool(int(input("First star (1) or Second star (2) : "))-1)
+    if (boolean):
+        pattern(liste)
+    else:
+        for_bac(liste)
+        up_down(liste)
+        one_dia(liste)
+        two_dia(liste)
     print(somme)
