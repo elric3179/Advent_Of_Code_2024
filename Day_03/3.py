@@ -1,6 +1,6 @@
 somme = 0
 import re
-
+#Full flemme 1st star
 with open("input_3.txt", "r") as file:
     temp_string = file.read()
     condition_dict = {}
