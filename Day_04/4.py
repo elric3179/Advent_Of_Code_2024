@@ -28,22 +28,18 @@ def one_dia(liste:list[list[str]]):
         for j in range(len(liste[0])-3):
             if check(liste, (i, j), (i+1, j+1), (i+2, j+2), (i+3, j+3)):
                 somme += 1
-                print((i, j), (i+1, j+1), (i+2, j+2), (i+3, j+3))
             if check(liste, (i+3, j+3), (i+2, j+2), (i+1, j+1), (i, j)):
                 somme += 1
-                print((i, j), (i+1, j+1), (i+2, j+2), (i+3, j+3))
-
+            
 def two_dia(liste:list[list[str]]):
     global somme
     for i in range(len(liste)-3):
         for j in range(len(liste[0])-3):
             if check(liste, (i+3, j), (i+2, j+1), (i+1, j+2), (i, j+3)):
                 somme += 1
-                print((i, j), (i+1, j+1), (i+2, j+2), (i+3, j+3))
             if check(liste, (i, j+3), (i+1, j+2), (i+2, j+1), (i+3, j)):
                 somme += 1
-                print((i, j), (i+1, j+1), (i+2, j+2), (i+3, j+3))
-
+                
 def check_x(liste, t1, t2, t3, t4, t5):
     if liste[t3[0]][t3[1]] != "A":
         return False
