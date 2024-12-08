@@ -87,20 +87,28 @@ int count_occurences(int* list, int taille, int occurence) {
 }
 
 int main(int argc, char** argv) {
-    assert(argc>1);
-
-    int* list_1 = malloc(1000*sizeof(int));
-    int* list_2 = malloc(1000*sizeof(int));
-    read_lists(argv[1], list_1, list_2);
-
-    int somme = 0;
-    for (int i = 0; i < 1000; i++) {
-        somme += list_1[i] * count_occurences(list_2, 1000, list_1[i]);
+    assert(argc>2);
+    if (argv[2][0] == '1') {
+        /*First star*/
+        int* list_1 = malloc(1000*sizeof(int));
+        int* list_2 = malloc(1000*sizeof(int));
+        read_lists(argv[1], list_1, list_2);
+        sort_list(list_1, 1000);
+        sort_list(list_2, 1000);
+        int* list = difference(list_1, list_2, 1000);
+        printf("%d\n", sum(list, 1000));
+    } else {
+        /*Second Star*/
+        int* list_1 = malloc(1000*sizeof(int));
+        int* list_2 = malloc(1000*sizeof(int));
+        read_lists(argv[1], list_1, list_2);
+        int somme = 0;
+        for (int i = 0; i < 1000; i++) {
+            somme += list_1[i] * count_occurences(list_2, 1000, list_1[i]);
+        }
+        printf("%d\n", somme);
+        free(list_1);
+        free(list_2);
     }
-    
-    printf("%d\n", somme);
-    
-    free(list_1);
-    free(list_2);
     return 0;
 }
