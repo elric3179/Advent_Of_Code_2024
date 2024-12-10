@@ -15,7 +15,7 @@ def is_decreasing(liste:list):
 def is_sorted(liste:list):
     return is_increasing(liste) or is_decreasing(liste)
 
-with open("input_2.txt", "r") as file:
+with open("input.txt", "r") as file:
     boolean = bool(int(input("First star (1) or Second star (2) : "))-1)
     string = ""
     string = file.read()
